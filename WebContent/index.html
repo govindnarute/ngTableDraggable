@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>ngTable Example</title>
+<link href="css/ng-table.css" rel="stylesheet">
+<link href="css/ng-table.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/angular-ui-tree.min.css" rel="stylesheet">
+<script src="js/vendor/angular.js"></script>
+<script src="js/vendor/ng-table.js"></script>
+<script src="js/vendor/angular-ui-tree.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controller/tableController.js"></script>
+
+</head>
+<body ng-controller="tableController">
+	<center>
+		<h1>{{header}}</h1>
+	</center>
+
+
+
+	<div class="row">
+
+
+		<div class="col-sm-6">
+
+			<table data-ng-table="tableParams" ui-tree id="tree-root"
+				class="table">
+				<!-- <tr>
+					<th>id</th>
+					<th>First Name</th>
+					<th>Last Names</th>
+				</tr> -->
+				<tbody ui-tree-nodes ng-model="$data">
+					<tr data-ng-repeat="student in $data" ui-tree-node>
+
+						<td data-title="'index'">{{$index}}</td>
+						<td data-title="'Id'" ui-tree-handle>{{student.id }}</td>
+						<td data-title="'First Name'" ui-tree-handle>{{student.firstName}}</td>
+						<td data-title="'Last Name'" ui-tree-handle>{{student.lastName}}</td>
+
+					</tr>
+				</tbody>
+			</table>
+
+
+
+		</div>
+
+		<div class="col-sm-6">
+			<ul>
+				<label>Data</label>
+				<li ng-repeat="student in data">{{student}}</li>
+				<label>Students</label>
+				<li ng-repeat="student in students">{{student}}</li>
+
+			</ul>
+		</div>
+
+	</div>
+
+
+
+
+</body>
+</html>
